@@ -1,4 +1,4 @@
-# Docker Opencanary
+# Docker OpenCanary
 Simple Docker image for OpenCanary in Ubuntu
 
 # Overview
