@@ -8,7 +8,7 @@ More details can be found at http://docs.opencanary.org/en/latest/
 
 # Instructions
 
-The [conf](#) directory contains an <i>.opencanary.conf</i> file that specifies services you would like to run.  You can also set up alerts through this config file.  Leave this file the way it is for a simple example of OpenCanary.
+The <i>conf</i> directory contains an <i>.opencanary.conf</i> file that specifies services you would like to run.  You can also set up alerts through this config file.  Leave this file the way it is for a simple example of OpenCanary.
 
 Build an image:<br>
 <b>docker build --rm -t opencanary .</b>
