@@ -7,9 +7,8 @@ This image sets up Opencanary in an Ubuntu container.  Opencanary is a tool that
 More details can be found at http://docs.opencanary.org/en/latest/
 
 # Instructions
-Copy or Clone these files to a directory on your Docker server.
 
-The "conf" directory contains an .opencanary.conf file that specifies services you would like to run.  You can also set up alerts through this config file.  You can leave this file the way it is for a simple example of Opencanary.
+The <i>conf</i> directory contains an <i>.opencanary.conf</i> file that specifies services you would like to run.  You can also set up alerts through this config file.  You can leave this file the way it is for a simple example of Opencanary.
 
 Build an image:<br>
 <b>docker build --rm -t opencanary .</b>
