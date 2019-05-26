@@ -14,7 +14,7 @@ Build an image:<br>
 <b>docker build --rm -t opencanary .</b>
 
 Create a container:<br>
-<b>sudo docker run -dit -p 21:21 -p 80:80 --name opencanary-app opencanary</b>
+<b>docker run -dit -p 21:21 -p 80:80 --name opencanary-app opencanary</b>
 
 Issue a command to start OpenCanary within the container:<br>
 <b>docker exec -it opencanary-app bash -c 'opencanaryd --start'</b>
