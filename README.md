@@ -36,17 +36,17 @@ Make sure your Docker registry is named properly.  The default is set to pull
 from server dockerregistry:5000.
 
 Run:<br>
-<b>kubectl create -f kube-opencanary.yaml</b>
+<b>kubectl create -f kube-opencanary.yaml</b><br>
 <b>kubectl create -f kube-opencanary-service.yaml</b>
 
 Your pod should now be running.  Check the status with:<br>
-<b>kubectl get all</b>
+<b>kubectl get all</b><br>
 <b>kubectl describe pods</b>
 
 Get your pod name and use it to enter the shell:<br>
-<b>kubectl get pods</b>
+<b>kubectl get pods</b><br>
 <b>kubectl exec -it opencanary-xxxxxxxxxx-xxxxx bash</b>
 
 Start OpenCanary and your are finished.<br>
-<b>opencanaryd --start</b>
+<b>opencanaryd --start</b><br>
 <b>exit</b>
