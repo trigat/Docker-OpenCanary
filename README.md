@@ -26,7 +26,7 @@ View log:<br>
 
 Want to play with Kubernetes?<br>
 After building your Dockerfile run this:<br>
-<b>docker tag opencanary:latest dockerregistry:5000/opencanary</b>
+<b>docker tag opencanary:latest dockerregistry:5000/opencanary</b><br>
 <b>docker push dockerregistry:5000/opencanary</b>
 
 Open and edit the mount path in kube-opencanary.yaml.<br>
