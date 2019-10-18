@@ -24,14 +24,14 @@ View log:<br>
 
 # Kubernetes
 
-Want to play with Kubernetes?
+Want to play with Kubernetes?<br>
 After building your Dockerfile run this:<br>
 <b>docker tag opencanary:latest dockerregistry:5000/opencanary</b>
 <b>docker push dockerregistry:5000/opencanary</b>
 
-Open and edit the mount path in kube-opencanary.yaml.
-By default, kube-opencanary.yaml is configured to create ftp and http services.
-Edit your ports if needed.
+Open and edit the mount path in kube-opencanary.yaml.<br>
+By default, kube-opencanary.yaml is configured to create ftp and http services.<br>
+Edit your ports if needed.<br>
 Make sure your Docker registry is named properly.  The default is set to pull
 from server dockerregistry:5000.
 
