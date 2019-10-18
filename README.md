@@ -21,3 +21,32 @@ Issue a command to start OpenCanary within the container:<br>
 
 View log:<br>
 <b>docker exec -it opencanary-app bash -c 'cat /var/tmp/opencanary.log'</b>
+
+# Kubernetes
+
+Want to play with Kubernetes?
+After building your Dockerfile run this:<br>
+<b>docker tag opencanary:latest dockerregistry:5000/opencanary</b>
+<b>docker push dockerregistry:5000/opencanary</b>
+
+Open and edit the mount path in kube-opencanary.yaml.
+By default, kube-opencanary.yaml is configured to create ftp and http services.
+Edit your ports if needed.
+Make sure your Docker registry is named properly.  The default is set to pull
+from server dockerregistry:5000.
+
+Run:<br>
+<b>kubectl create -f kube-opencanary.yaml</b>
+<b>kubectl create -f kube-opencanary-service.yaml</b>
+
+Your pod should now be running.  Check the status with:<br>
+<b>kubectl get all</b>
+<b>kubectl describe pods</b>
+
+Get your pod name and use it to enter the shell:<br>
+<b>kubectl get pods</b>
+<b>kubectl exec -it opencanary-xxxxxxxxxx-xxxxx bash</b>
+
+Start OpenCanary and your are finished.<br>
+<b>opencanaryd --start</b>
+<b>exit</b>
