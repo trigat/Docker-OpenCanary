@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opencanary
+  labels:
+    app: opencanary
+spec:
+  selector:
+    matchLabels:
+      app: opencanary
+  template:
+    metadata:
+      labels:
+        app: opencanary
+    spec:
+      containers:
+      - image: dockerregistry:5000/opencanary
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        name: opencanary
+        ports:
+        - containerPort: 21
+          name: ftp
+        - containerPort: 80
+          name: http
+        volumeMounts:
+        - name: conf-opencanary
+          mountPath: /home/USERNAME/Docker/opencanary/conf/opencanary.conf
+      volumes:
+      - name: conf-opencanary
+        hostPath:
+          path: /root/.opencanary.conf
