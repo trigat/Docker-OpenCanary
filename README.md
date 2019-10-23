@@ -16,9 +16,6 @@ Build an image:<br>
 Create a container:<br>
 <b>docker run -dit -p 21:21 -p 80:80 --name opencanary-app opencanary</b>
 
-Issue a command to start OpenCanary within the container:<br>
-<b>docker exec -it opencanary-app bash -c 'opencanaryd --start'</b>
-
 View log:<br>
 <b>docker exec -it opencanary-app bash -c 'cat /var/tmp/opencanary.log'</b>
 
