@@ -18,4 +18,4 @@ RUN opencanaryd --copyconfig
 
 COPY ./conf/opencanary.conf /root/.opencanary.conf
 
-RUN opencanaryd --start
+ENTRYPOINT opencanaryd --start && /bin/bash
