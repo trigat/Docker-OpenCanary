@@ -47,3 +47,6 @@ Get your pod name and use it to enter the shell:<br>
 Start OpenCanary and your are finished.<br>
 <b>opencanaryd --start</b><br>
 <b>exit</b>
+
+View logs:<br>
+<b>docker exec -it opencanary-app sh -c 'cat /var/tmp/opencanary.log'</b>
