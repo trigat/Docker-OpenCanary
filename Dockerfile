@@ -4,6 +4,7 @@ MAINTAINER Trigat https://github.com/trigat/dockeropencanary
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # libpcap-dev is for scapy/pcapy
+# NOTE python-pip may need to be changed to python3-pip
 RUN apt-get update && apt-get install -y sudo python-pip libpcap-dev
 
 # use this if you want to use RDP for honeypot
