@@ -1,22 +1,24 @@
-FROM amd64/ubuntu:latest
-MAINTAINER Trigat https://github.com/trigat/dockeropencanary
+FROM python:3.11-slim
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+LABEL maintainer="Trigat <https://github.com/trigat/dockeropencanary>"
 
-# libpcap-dev is for scapy/pcapy
-# NOTE python-pip may need to be changed to python3-pip
-RUN apt-get update && apt-get install -y sudo python-pip libpcap-dev
+ENV DEBIAN_FRONTEND=noninteractive
 
-# use this if you want to use RDP for honeypot
-RUN pip install rdpy
+# Install only necessary build dependencies, then clean up
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        libssl-dev \
+        libffi-dev \
+        libpcap-dev \
+        python-dev-is-python3 \
+    && pip install --no-cache-dir opencanary scapy pcapy-ng \
+    && apt-get purge -y --auto-remove build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip install opencanary
-
-# use this if you want to use SNMP for e-mail alerts
-RUN pip install scapy pcapy
-
+# Copy default config
 RUN opencanaryd --copyconfig
-
 COPY ./conf/opencanary.conf /root/.opencanary.conf
 
-ENTRYPOINT opencanaryd --start && /bin/bash
+# Set the default application and arguments
+ENTRYPOINT ["opencanaryd"]
+CMD ["--dev", "--uid=nobody", "--gid=nogroup"]
